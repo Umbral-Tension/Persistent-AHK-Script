@@ -17,7 +17,6 @@ SetKeyDelay 10 ; Default is 10
 	SetNumLockState AlwaysOn
 	setCapslockState AlwaysOff
 	
-	q = "           ;" <- Need this dumbass quote to trick the syntax highlighter. This q variable is for appending a literal quote to a string.  
 	location = home
 	browser = firefox
 	EnvGet, uPath, USERPROFILE
@@ -28,7 +27,7 @@ SetKeyDelay 10 ; Default is 10
 } 
 
 ;TESTING HOTKEY
-	capslock & g:: 
+	;capslock & g:: 
 	PgUp:: 
 		winActivate Notepad
 		mywinWait("Notepad", 2)
@@ -55,71 +54,41 @@ myWinWait(windowTitle, waitLength, notify:=1){
 	else 
 		if (notify)
 			msgbox "Window inactive or non-existant"
-		closeAud()
 		return 0
 }
-
-closeAud(){
-	Loop, 5
-		{
-			winclose ahk_exe audacity.exe
-			sleep 500
-		}
-}
-
-;specific to mom's computer 
-#if location = "mom" 
-	mbutton::			ifLongPress("guiShow")
-#if
-
 
 ;OPENERS/CLOSERS
 	    
 	XButton2::		
 	capslock & m:: 		guiShow()
-	^numpadsub:: 		veraClose() 
 	PgDn::				open("calculator")
-	!x::				send {f6}
-	;!numpadadd:: 		RESERVED FOR EVERYTHING, BUT THE ACTUAL HOTKEY IS HANDLED BY THE PROGRAM ITSELF.
-	!backspace::		send !{f4}
+
+	;!numpadadd:: 		reserved for everything search, but the actual hotkey is handled by the program itself.
+	!backspace::		send !{f4} 
 	!enter:: 			
 	!numpadenter::		open(browser)
-	!numpad0::
-	!1::
 	!numpad1:: 			open("dopamine")
 	
-	!2::
 	!numpad2:: 			open("explorer","shell:AppsFolder\Microsoft.Office.OneNote_8wekyb3d8bbwe!microsoft.onenoteim")
 	
-	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
-	^!3::				
 	^!numpad3::			open("powershell", "-noexit -command python")
 	
-	!4::
 	!numpad4::			open("taskmanager")
 	
-	!5::
 	!numpad5::			open("vscode")
-	^!5::
 	^!numpad5::			open("vscode",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
 	
 	!7::
 	!numpad7::			open("alarm")
 	
-	!8::
 	!numpad8::			open("help")
-	^!8::				
 	^!numpad8::			open("windowspy")
-
-	^!numpad9::			
-
 	
-
 
 ;REMAPS
 
-	#w::#e
+	#w::#e	;open explorer
 	insert::home 
 	F1::F2
 	;MEDIA Keys
@@ -138,11 +107,8 @@ closeAud(){
 	capslock & h::home
 	
 ;TEXT EDITTING
-	^+home::
-	^+insert::
-		send {home 2}
-		send +{end} 
-	return
+	; Some text fields interpret ctrl+backspace as some kind of special character, rather than as a 'whole-word-deltion'.
+	; this sends keystrokes to do a manual version of that.
 	^+backspace:: send ^+{left}{delete}
 
 ;OTHER
@@ -168,8 +134,9 @@ closeAud(){
 
 ;CONTEXTUAL HOTKEYS
 	#IfWinActive OneNote
-	^l:: send ^e
+	^l:: send ^e	;search
 
+	;allow keyboard to manipulate the AHK GUI
 	#IfWinActive, Get Command ahk_exe AutoHotkey.exe 
 	Esc:: Gui, destroy
 	numpadEnter::
@@ -177,25 +144,22 @@ closeAud(){
 		gui submit	
 		open(subStr(commandSelection, 1))
 	return
-	#IfWinActive ahk_exe idea64.exe
-		!r:: send +{f10}
-		^n:: send ^!+n
-		^+r:: send +{f6}
-		!y:: send !{enter}
-	#IfWinActive,  - Visual Studio Code
-		capslock & t:: send ^``
 
-	#IfWinActive, Eclipse IDE
-		!r:: send ^{f11}
-		^g:: send {f3}
-		^+r:: send !+r
+	#IfWinActive ahk_exe idea64.exe
+		!r:: send +{f10} 	;run last configuration
+		^n:: send ^!+n		;search for symbol
+		^+r:: send +{f6} 	;Refactor->Rename
+		!y:: send !{enter}  ;accept package suggestion 
+	#IfWinActive,  - Visual Studio Code
+		capslock & t:: send ^`` ;toggles terminal 
+	
 	#IfWinActive	;Calling this without parameters cancels contextualization
 
 	
 
 ;SubRoutines
 	Quarter_Hourly:
-		try ;NECESSARY BECAUSE 'CLIPBOARD=' THROWS EXCEPTION WHEN THE COMPUTER IS LOCKED
+		try ; The try block is necessary because 'clipboard=' throws an exception when the computer is locked
 			clipboard = 
 	 	fileRemoveDir %uPath%\Documents\Custom Office Templates\ 1
 		fileRemoveDir %uPath%\Documents\Unified Remote\, 1

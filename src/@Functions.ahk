@@ -44,9 +44,8 @@ open(program, args:=""){
 	theBrowser := paths[browser].1
 	;WEBSITE OPENING
 	if(instr(thePath, "http")){
-		qu = "           ;" <- Need this dumbass quote to trick the syntax highlighter. This qu variable is for appending a literal quote to a string.    
-		str := qu . theBrowser . qu . " " . qu . thePath . qu	
-		run % str 	;NOTE THAT THIS RELIES ON THE SYSTEM'S DEFAULT BROWSER SETTING TO DECIDE WHAT PROGRAM THE SITE IS OPENED IN.
+		str := q(theBrowser) .  " " . q(thePath) 	
+		run % str 	;note that this relies on the system's default browser setting to decide what program the site is opened in.
 		return
 	}
 	
@@ -61,13 +60,6 @@ open(program, args:=""){
 	}
 	winActivate % theTitle 
 	winWaitActive, , ,2
-}
-
-
-veraClose(){
-	winMenuSelectItem VeraCrypt,,Volumes, Dismount All Mounted Volumes
-	winclose VeraCrypt
-	detectHiddenWindows OFF
 }
 
 
