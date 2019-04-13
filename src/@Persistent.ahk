@@ -59,7 +59,7 @@ myWinWait(windowTitle, waitLength, notify:=1){
 
 ;OPENERS/CLOSERS
 	    
-	XButton2::		
+	MButton::			ifLongPress("guiShow", 0.3)
 	capslock & m:: 		guiShow()
 	PgDn::				open("calculator")
 
@@ -69,7 +69,7 @@ myWinWait(windowTitle, waitLength, notify:=1){
 	!numpadenter::		open(browser)
 	!numpad1:: 			open("dopamine")
 	
-	!numpad2:: 			open("explorer","shell:AppsFolder\Microsoft.Office.OneNote_8wekyb3d8bbwe!microsoft.onenoteim")
+	!numpad2:: 			open("evernote")
 	
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
 	^!numpad3::			open("powershell", "-noexit -command python")
@@ -105,6 +105,7 @@ myWinWait(windowTitle, waitLength, notify:=1){
 	capslock & backspace::delete
 	capslock & n::end
 	capslock & h::home
+	capslock & p::insert
 	
 ;TEXT EDITTING
 	; Some text fields interpret ctrl+backspace as some kind of special character, rather than as a 'whole-word-deltion'.
@@ -153,6 +154,9 @@ myWinWait(windowTitle, waitLength, notify:=1){
 	#IfWinActive,  - Visual Studio Code
 		capslock & t:: send ^`` ;toggles terminal 
 	
+	#IfWinActive, ahk_exe Evernote.exe
+		^r:: send ^h
+		^l:: send {f6}
 	#IfWinActive	;Calling this without parameters cancels contextualization
 
 	

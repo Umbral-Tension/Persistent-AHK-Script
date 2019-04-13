@@ -117,8 +117,8 @@ ifDoubleClick(exec:="none", arg*){
 }
 
 ; DOES NOT WORK FOR COMPOUND KEYS LIKE !SPACE
-ifLongPress(exec:="none", timeout:=2){
- 	keyWait, %A_ThisHotkey%, T2
+ifLongPress(exec:="none", timeout:=1){
+ 	keyWait, %A_ThisHotkey%, T%timeout%
 	if ErrorLevel{
 		%exec%()
 		return 1
