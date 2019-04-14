@@ -59,7 +59,7 @@ myWinWait(windowTitle, waitLength, notify:=1){
 
 ;OPENERS/CLOSERS
 	    
-	MButton::			ifLongPress("guiShow", 0.3)
+	XButton2::			
 	capslock & m:: 		guiShow()
 	PgDn::				open("calculator")
 
