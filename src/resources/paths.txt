@@ -31,6 +31,7 @@ spotify:		[			"C:\Users\Jeremy\AppData\Roaming\Spotify\Spotify.exe",										"S
 sublime:		[p64 . 		"Sublime Text 3\sublime_text.exe", 															"ahk_exe sublime_text.exe"]
 taskmanager:	[			"C:\Windows\System32\Taskmgr.exe", 															"Task Manager"]
 veracrypt:		[P64 . 		"VeraCrypt\VeraCrypt-x86.exe", 																"VeraCrypt"]
-vscode: 		[p64 .      "Microsoft VS Code\Code.exe",                                                               "Visual Studio Code"]
+visual studio:  [p32 .     "Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe",                             "Microsoft Visual Studio"]
+vscode: 		[           "C:\Users\jeremy\AppData\Local\Programs\Microsoft VS Code\code.exe",                        "Visual Studio Code"]
 windowspy:		[p64 . 		"AutoHotkey\WindowSpy.ahk",																	"Window Spy"]
 

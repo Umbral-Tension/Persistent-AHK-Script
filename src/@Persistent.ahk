@@ -27,8 +27,11 @@ SetKeyDelay 10 ; Default is 10
 } 
 
 ;TESTING HOTKEY
-	;capslock & g:: 
+	capslock & g:: 
 	PgUp:: 
+		MouseGetPos, x, y
+		BlockInput, On
+		send {esc}
 		winActivate Notepad
 		mywinWait("Notepad", 2)
 		send {home 2}
@@ -44,6 +47,8 @@ SetKeyDelay 10 ; Default is 10
 		send ^v
 		sleep 50
 		send {enter}
+		MouseMove, x, y
+		BlockInput, off
 	return 
 
 myWinWait(windowTitle, waitLength, notify:=1){
@@ -151,12 +156,17 @@ myWinWait(windowTitle, waitLength, notify:=1){
 		^n:: send ^!+n		;search for symbol
 		^+r:: send +{f6} 	;Refactor->Rename
 		!y:: send !{enter}  ;accept package suggestion 
+
 	#IfWinActive,  - Visual Studio Code
 		capslock & t:: send ^`` ;toggles terminal 
 	
 	#IfWinActive, ahk_exe Evernote.exe
 		^r:: send ^h
 		^l:: send {f6}
+
+	#IfWinActive, Microsoft Visual Studio
+		!r:: send {f5}
+		^+r:: send {f2}
 	#IfWinActive	;Calling this without parameters cancels contextualization
 
 	
