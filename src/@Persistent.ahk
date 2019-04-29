@@ -120,7 +120,7 @@ myWinWait(windowTitle, waitLength, notify:=1){
 ;OTHER
 	!p:: suspend
 	capslock & r:: saveReload()
-
+	capslock & c:: csharpSearch()
 	
 
 

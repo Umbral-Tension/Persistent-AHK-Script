@@ -35,6 +35,13 @@ SetKeyDelay 10 ; Default is 10
 }
 
 
+csharpSearch(){
+	global paths
+	InputBox, searchString, C# Search, Enter search terms:`n
+	run % q(paths["firefox"].1 ) . " -search " .  q("c# " . searchString)
+}
+
+
 open(program, args:=""){
 	global paths
 	global browser 
