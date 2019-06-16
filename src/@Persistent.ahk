@@ -29,30 +29,12 @@ SetKeyDelay 10 ; Default is 10
 ;TESTING HOTKEY
 	capslock & g:: 
 	PgUp:: 
-		MouseGetPos, x, y
-		BlockInput, On
-		send {esc}
-		winActivate Notepad
-		mywinWait("Notepad", 2)
-		send {home 2}
-		send +{end}
-		send ^c
-		send {right} --{down}
-		winActivate Deezloader 
-		myWinWait("Deezloader", 2)
-		click 250, 316
-		sleep 50
-		send ^a
-		sleep 50
-		send ^v
-		sleep 50
-		send {enter}
-		MouseMove, x, y
-		BlockInput, off
+		cmd := "FormatFactory -> MP3 VBR High quality Source_File_Name [Dest_Folder_or_File_Name] [/hide]"
 	return 
 
-myWinWait(windowTitle, waitLength, notify:=1){
+jWinActivate(windowTitle, waitLength, notify:=1){
 	WinWait, %windowTitle%, ,%waitLength%
+	WinActivate, %windowTitle%
 	WinWaitActive, %windowTitle%, ,%waitLength%
 	if (winExist(windowTitle) and WinActive(windowTitle))
 		return 1
@@ -72,21 +54,25 @@ myWinWait(windowTitle, waitLength, notify:=1){
 	!backspace::		send !{f4} 
 	!enter:: 			
 	!numpadenter::		open(browser)
+	
+	!1::
 	!numpad1:: 			open("dopamine")
 	
+	!2::
 	!numpad2:: 			open("evernote")
 	
+	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
 	^!numpad3::			open("powershell", "-noexit -command python")
 	
+	!4::
 	!numpad4::			open("taskmanager")
 	
+	!5::
 	!numpad5::			open("vscode")
 	^!numpad5::			open("vscode",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
 	
-	!7::
-	!numpad7::			open("alarm")
-	
+	!8::
 	!numpad8::			open("help")
 	^!numpad8::			open("windowspy")
 	
@@ -105,12 +91,11 @@ myWinWait(windowTitle, waitLength, notify:=1){
 		capslock & I::up
 		capslock & j::left
 		capslock & l::right
-	capslock & e::esc
 	capslock & space::AppsKey
 	capslock & backspace::delete
 	capslock & n::end
 	capslock & h::home
-	capslock & p::insert
+	capslock & e::esc
 	
 ;TEXT EDITTING
 	; Some text fields interpret ctrl+backspace as some kind of special character, rather than as a 'whole-word-deltion'.
