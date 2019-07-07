@@ -130,6 +130,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	;allow keyboard to manipulate the AHK GUI
 	#IfWinActive, Get Command ahk_exe AutoHotkey.exe 
 	Esc:: Gui, destroy
+	capslock & e::Gui, destroy
 	numpadEnter::
 	Enter:: 
 		gui submit	
@@ -141,13 +142,18 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		^n:: send ^!+n		;search for symbol
 		^+r:: send +{f6} 	;Refactor->Rename
 		!y:: send !{enter}  ;accept package suggestion 
+	#IfWinActive, PyCharm
+		!r:: send +{f10} 	;run last configuration
+		^n:: send ^!+n		;search for symbol
+		^+r:: send +{f6} 	;Refactor->Rename
+		!y:: send !{enter}  ;accept package suggestion 
 
 	#IfWinActive,  - Visual Studio Code
 		capslock & t:: send ^`` ;toggles terminal 
 	
 	#IfWinActive, ahk_exe Evernote.exe
 		^r:: send ^h
-		^l:: send {f6}
+		^l:: send ^q
 
 	#IfWinActive, Microsoft Visual Studio
 		!r:: send {f5}
