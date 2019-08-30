@@ -69,8 +69,8 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad4::			open("taskmanager")
 	
 	!5::
-	!numpad5::			open("atom")
-	^!numpad5::			open("atom",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
+	!numpad5::			open("vscode")
+	^!numpad5::			open("vscode",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
 	
 	!8::
 	!numpad8::			open("help")
