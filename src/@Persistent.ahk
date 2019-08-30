@@ -69,8 +69,8 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad4::			open("taskmanager")
 	
 	!5::
-	!numpad5::			open("vscode")
-	^!numpad5::			open("vscode",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
+	!numpad5::			open("atom")
+	^!numpad5::			open("atom",q(A_ScriptFullPath) . q(A_scriptdir . "\Resources\paths.txt") . q(A_ScriptDir . "\@Functions.ahk") )
 	
 	!8::
 	!numpad8::			open("help")
@@ -123,14 +123,18 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	^numpad9:: soundset, 90
 	
 
+	guiReload(){
+		GUI, Destroy
+		saveReload()
+	}
 ;CONTEXTUAL HOTKEYS
 	#IfWinActive OneNote
 	^l:: send ^e	;search
 
 	;allow keyboard to manipulate the AHK GUI
 	#IfWinActive, Get Command ahk_exe AutoHotkey.exe 
-	Esc:: Gui, destroy
-	capslock & e::Gui, destroy
+	Esc:: guiReload()
+	capslock & e:: guiReload()
 	numpadEnter::
 	Enter:: 
 		gui submit	
@@ -144,10 +148,9 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		!y:: send !{enter}  ;accept package suggestion 
 	#IfWinActive, PyCharm
 		!r:: send +{f10} 	;run last configuration
-		^n:: send ^!+n		;search for symbol
 		^+r:: send +{f6} 	;Refactor->Rename
-		!y:: send !{enter}  ;accept package suggestion 
-
+		^n:: send ^{f12}
+		
 	#IfWinActive,  - Visual Studio Code
 		capslock & t:: send ^`` ;toggles terminal 
 	
