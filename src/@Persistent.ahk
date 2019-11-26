@@ -59,7 +59,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad1:: 			open("dopamine")
 	
 	!2::
-	!numpad2:: 			open("onenotes")
+	!numpad2:: 			open("onenote")
 	
 	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")

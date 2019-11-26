@@ -52,7 +52,7 @@ open(program, args:=""){
 	;WEBSITE OPENING
 	if(instr(thePath, "http")){
 		str := q(theBrowser) .  " " . q(thePath) 	
-		run % str 	;note that this relies on the system's default browser setting to decide what program the site is opened in.
+		run % str 
 		return
 	}
 	
