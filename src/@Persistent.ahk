@@ -29,7 +29,7 @@ SetKeyDelay 10 ; Default is 10
 ;TESTING HOTKEY
 	capslock & g:: 
 	PgUp:: 
-		cmd := "FormatFactory -> MP3 VBR High quality Source_File_Name [Dest_Folder_or_File_Name] [/hide]"
+		open("random") ;cmd := "FormatFactory -> MP3 VBR High quality Source_File_Name [Dest_Folder_or_File_Name] [/hide]"
 	return 
 
 jWinActivate(windowTitle, waitLength, notify:=1){
@@ -59,7 +59,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad1:: 			open("dopamine")
 	
 	!2::
-	!numpad2:: 			open("evernote")
+	!numpad2:: 			open("onenotes")
 	
 	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")

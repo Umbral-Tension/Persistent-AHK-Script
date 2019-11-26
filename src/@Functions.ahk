@@ -172,9 +172,9 @@ ifLongPress(exec:="none", timeout:=1){
 		;SPACER
 		spacer = ⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟|
 		;WEBSITES
-		websites = Amazon|Artstation|Github|Gmail|Lichess|Reddit|Youtube|
+		websites = Artstation|Euler|Github|Gmail|Lichess|Random|Reddit|Youtube|
 		;PROGRAMS
-		programs = Firefox|Controlpanel|Dopamine|Evernote|PyCharm|QtDesigner|Spotify|
+		programs = Firefox|Controlpanel|Dopamine|Evernote|OneNote|PyCharm|Spotify|
 		cdList := websites . spacer . programs . spacer . "Exit|"
 		return cdList
 	}
