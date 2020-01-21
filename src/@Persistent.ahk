@@ -148,9 +148,9 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		capslock & t:: send !{f12}	;toggle terminal
 		
 	#IfWinActive,  - Visual Studio Code
-		capslock & tv:: send ^`` ;toggles terminal 
+		capslock & t:: send ^`` ;toggles terminal 
 
-/*	currently unused	
+/*	currently unused 	
 	#IfWinActive, ahk_exe Evernote.exe
 		^r:: send ^h
 		^l:: send ^q
