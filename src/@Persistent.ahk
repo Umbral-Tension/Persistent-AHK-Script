@@ -56,7 +56,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpadenter::		open(browser)
 	
 	!1::
-	!numpad1:: 			open("dopamine")
+	!numpad1:: 			open("musicbee")
 	
 	!2::
 	!numpad2:: 			open("onenote")
@@ -141,19 +141,16 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		open(subStr(commandSelection, 1))
 	return
 
-	#IfWinActive ahk_exe idea64.exe
-		!r:: send +{f10} 	;run last configuration
-		^n:: send ^!+n		;search for symbol
-		^+r:: send +{f6} 	;Refactor->Rename
-		!y:: send !{enter}  ;accept package suggestion 
 	#IfWinActive, PyCharm
 		!r:: send +{f10} 	;run last configuration
 		^+r:: send +{f6} 	;Refactor->Rename
-		^n:: send ^{f12}
+		^n:: send ^{f12}	;navigate
+		capslock & t:: send !{f12}	;toggle terminal
 		
 	#IfWinActive,  - Visual Studio Code
-		capslock & t:: send ^`` ;toggles terminal 
-	
+		capslock & tv:: send ^`` ;toggles terminal 
+
+/*	currently unused	
 	#IfWinActive, ahk_exe Evernote.exe
 		^r:: send ^h
 		^l:: send ^q
@@ -162,7 +159,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		!r:: send {f5}
 		^+r:: send {f2}
 	#IfWinActive	;Calling this without parameters cancels contextualization
-
+*/
 	
 
 ;SubRoutines
