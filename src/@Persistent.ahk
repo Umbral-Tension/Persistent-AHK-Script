@@ -22,9 +22,12 @@ SetKeyDelay 10 ; Default is 10
 	EnvGet, uPath, USERPROFILE
 	uPath .= "\"
 	setupFunctions(location, browser, uPath)
+	;setTimer Ten_Seconds, 10000
 	setTimer Quarter_Hourly, 900000 
 	setTimer Daily,  86400000
 } 
+
+#IfWinNotActive, ahk_exe Wow.exe ; Stops hotkeys from working if world of warcraft is open. 
 
 ;TESTING HOTKEY
 	capslock & g:: 
@@ -150,6 +153,9 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	#IfWinActive,  - Visual Studio Code
 		capslock & t:: send ^`` ;toggles terminal 
 
+
+	#IfWinActive ;calling by itself cancels contextualalization 
+
 /*	currently unused 	
 	#IfWinActive, ahk_exe Evernote.exe
 		^r:: send ^h
@@ -163,6 +169,10 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	
 
 ;SubRoutines
+	Ten_Seconds:
+
+	return 
+
 	Quarter_Hourly:
 		try ; The try block is necessary because 'clipboard=' throws an exception when the computer is locked
 			clipboard = 
