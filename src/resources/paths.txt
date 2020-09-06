@@ -5,6 +5,7 @@ gmail:          [     "http://gmail.com",                                       
 google:			    [			"http://google.com", 																				""]
 github:         [     "https://github.com/Umbral-Tension/Taffic_Simulation",                                               ""]
 lichess:		    [			"http://lichess.org",																				""]
+localhost:      ["http://localhost:8000",                                                                                          ""]
 random:         ["http://reddit.com/r/random                                                                                  ""]
 reddit:			    [			"http://reddit.com", 																				""]
 youtube:		    [			"http://youtube.com", 																				""]

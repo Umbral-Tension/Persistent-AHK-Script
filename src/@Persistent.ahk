@@ -27,12 +27,11 @@ SetKeyDelay 10 ; Default is 10
 	setTimer Daily,  86400000
 } 
 
-#IfWinNotActive, ahk_exe Wow.exe ; Stops hotkeys from working if world of warcraft is open. 
 
 ;TESTING HOTKEY
 	capslock & g:: 
 	PgUp:: 
-		open("random") ;cmd := "FormatFactory -> MP3 VBR High quality Source_File_Name [Dest_Folder_or_File_Name] [/hide]"
+		
 	return 
 
 jWinActivate(windowTitle, waitLength, notify:=1){
@@ -59,10 +58,10 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpadenter::		open(browser)
 	
 	!1::
-	!numpad1:: 			open("musicbee")
+	!numpad1:: 			open("dopamine")
 	
 	!2::
-	!numpad2:: 			open("onenote")
+	!numpad2:: 			open("evernote")
 	
 	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
@@ -180,6 +179,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		fileRemoveDir %uPath%\Documents\Unified Remote\, 1
 		FileRemoveDir %uPath%Google Drive\Pics\Saved Pictures\, 1
 		FileRemoveDir %uPath%Google Drive\Pics\Camera Roll\, 1
+
 	return
 
 	Daily:

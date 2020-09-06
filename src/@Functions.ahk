@@ -162,6 +162,13 @@ ifLongPress(exec:="none", timeout:=1){
 		if (GuiEvent = "DoubleClick")
 		{
 			gui Submit
+			if(subStr(commandSelection, 1) == "Random"){
+				loop, 3
+				{
+					open("random")
+					sleep 30
+				}
+			}
 			if(subStr(commandSelection, 1) != "Exit"){ 
 				open(subStr(commandSelection, 1))
 			}
@@ -172,9 +179,9 @@ ifLongPress(exec:="none", timeout:=1){
 		;SPACER
 		spacer = ⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟⧟|
 		;WEBSITES
-		websites = Artstation|Euler|Github|Gmail|Lichess|Random|Reddit|Youtube|
+		websites = Artstation|Euler|Github|Gmail|Lichess|Localhost|Random|Reddit|Youtube|
 		;PROGRAMS
-		programs = Firefox|Deezloader|Musicbee|OneNote|PyCharm|Spotify|
+		programs = Firefox|Deezloader|Dopamine|Evernote|PyCharm|Spotify|
 		cdList := websites . spacer . programs . spacer . "Exit|"
 		return cdList
 	}
