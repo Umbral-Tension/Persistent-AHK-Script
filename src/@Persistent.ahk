@@ -31,7 +31,7 @@ SetKeyDelay 10 ; Default is 10
 ;TESTING HOTKEY
 	capslock & g:: 
 	PgUp:: 
-		
+
 	return 
 
 jWinActivate(windowTitle, waitLength, notify:=1){
@@ -61,7 +61,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad1:: 			open("dopamine")
 	
 	!2::
-	!numpad2:: 			open("evernote")
+	!numpad2:: 			open("onenote")
 	
 	!3::
 	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
@@ -143,7 +143,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 		open(subStr(commandSelection, 1))
 	return
 
-	#IfWinActive, PyCharm
+	#IfWinActive, ahk_exe pycharm64.exe
 		!r:: send +{f10} 	;run last configuration
 		^+r:: send +{f6} 	;Refactor->Rename
 		^n:: send ^{f12}	;navigate

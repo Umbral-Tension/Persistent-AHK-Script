@@ -181,7 +181,7 @@ ifLongPress(exec:="none", timeout:=1){
 		;WEBSITES
 		websites = Artstation|Euler|Github|Gmail|Lichess|Localhost|Random|Reddit|Youtube|
 		;PROGRAMS
-		programs = Firefox|Deezloader|Dopamine|Evernote|PyCharm|Spotify|
+		programs = Firefox|Deezloader|Dopamine|Onenote|PyCharm|Spotify|
 		cdList := websites . spacer . programs . spacer . "Exit|"
 		return cdList
 	}
