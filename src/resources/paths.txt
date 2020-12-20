@@ -32,6 +32,7 @@ pycharm:        [p64 .      "JetBrains\PyCharm Community Edition 2019.1.3\bin\py
 qtdesigner:     [p64 .      "Python37\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe",                               "Qt Designer"]
 spotify:		    [			"C:\Users\Jeremy\AppData\Roaming\Spotify\Spotify.exe",										"Spotify"]
 taskmanager:    [			"C:\Windows\System32\Taskmgr.exe", 															"Task Manager"]
+terminal:       ["wt",                                                                                                  "ahk_exe WindowsTerminal.exe"]
 veracrypt:      [P64 . 		"VeraCrypt\VeraCrypt-x86.exe", 																"VeraCrypt"]
 visual studio:  [p32 .     "Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe",                             "Microsoft Visual Studio"]
 vscode: 		    [           "C:\Users\jeremy\AppData\Local\Programs\Microsoft VS Code\code.exe",                        "Visual Studio Code"]

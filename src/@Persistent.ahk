@@ -64,8 +64,7 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	!numpad2:: 			open("onenote")
 	
 	!3::
-	!numpad3:: 			open("powershell", "-noexit -command cd C:\users\jeremy\desktop")
-	^!numpad3::			open("powershell", "-noexit -command python")
+	!numpad3:: 			open("terminal") 
 	
 	!4::
 	!numpad4::			open("taskmanager")
