@@ -163,11 +163,8 @@ ifLongPress(exec:="none", timeout:=1){
 		{
 			gui Submit
 			if(subStr(commandSelection, 1) == "Random"){
-				loop, 3
-				{
-					open("random")
-					sleep 30
-				}
+				run python random_reddit.py
+				return
 			}
 			if(subStr(commandSelection, 1) != "Exit"){ 
 				open(subStr(commandSelection, 1))

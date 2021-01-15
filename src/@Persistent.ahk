@@ -104,7 +104,6 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	^+backspace:: send ^+{left}{delete}
 
 ;OTHER
-	!p:: suspend
 	capslock & r:: saveReload()
 	capslock & c:: csharpSearch()
 	
