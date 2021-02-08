@@ -60,7 +60,7 @@ def getsubs(subs, num):
     while len(newsubs) < 10:
         delta = time.time() - last_req
         if delta < 3:
-            time.sleep(2.0-delta)
+            time.sleep(3.0-delta)
         last_req = time.time()
         r = requests.get('https://reddit.com/r/random', headers={'user-agent':'random_sub_grabber pls let me have them'})
         if r.ok:

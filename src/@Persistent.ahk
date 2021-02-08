@@ -83,6 +83,8 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	#w::#e	;open explorer
 	insert::home 
 	F1::F2
+	RAlt::ctrl ;allows quick access to ctrl using right hand ring finger for things like ctrl+z 
+	RWin::ctrl ;allows quick access to ctrl using right hand ring finger for things like ctrl+z
 	;MEDIA Keys
 		f10::Media_Play_Pause
 		f11::Media_Prev  
@@ -166,6 +168,8 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 	
 
 ;SubRoutines
+ 
+
 	Ten_Seconds:
 
 	return 
