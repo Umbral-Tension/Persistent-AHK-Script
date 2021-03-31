@@ -5,7 +5,7 @@ import json
 import os
 import time
 import sys
-from jtools.jconsole import exit_app
+from jtools.jconsole import exit_app, yes_no
 import threading
 
 BASE_DIR = os.path.dirname(__file__)
@@ -92,8 +92,12 @@ def opensubs():
                 firefox += ' ' + sub_url
             os.system(firefox)
         else:
-            exit_app('Not enough subs left in the piggy bank.')
-
+            if yes_no('Not enough subs left in the piggy bank. Mine more subs now?'):
+                mine()
+                return
+            else:
+                exit_app()
+                
     with open(OPENER_SUBS_FILE, 'w') as f:
         json.dump(subs, f, indent=4)
 

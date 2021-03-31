@@ -107,9 +107,9 @@ jWinActivate(windowTitle, waitLength, notify:=1){
 
 ;OTHER
 	capslock & r:: saveReload()
-	capslock & c:: csharpSearch()
 	
-
+	capslock & x:: send {U+1E8B} ; ẋ (x dot)
+	capslock & c:: send {U+1E8D} ; ẍ (x double dot)
 
 
 ; SET VOLUME
